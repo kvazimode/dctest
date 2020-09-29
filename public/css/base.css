@@ -4,3 +4,41 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+/* blocks */
+.description,
+.counter  {
+  font-family: Roboto, sans-serif;
+  width: 500px;
+  margin: auto;
+  display: flex;
+}
+
+.description {
+  flex-direction: column;
+  background-color: lightblue;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 20px 0;
+  border-radius: 15px ;
+}
+
+.counter {
+  height: 100px;
+  margin: 30px auto;
+  background-color: lightgreen;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.description p {
+  height: 30px;
+  margin: 0;
+}
+
+.input {
+  width: 300px;
+  text-align: center;
+}
