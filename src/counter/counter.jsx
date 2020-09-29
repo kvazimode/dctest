@@ -3,11 +3,7 @@ import React from 'react';
 const Counter = (props) => {
   const {value, min, max, onValueChange} = props;
   function wheelHandler(evt, val) {
-    if (evt.deltaY < 0) {
-      val++
-    } else {
-      val--
-    }
+    evt.deltaY < 0 ? val++ : val--
     return onValueChange(val)
   }
   
