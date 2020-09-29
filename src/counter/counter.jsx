@@ -13,7 +13,7 @@ const Counter = (props) => {
       <p>Текущее максимальное значение: {max}</p>
     </div>
     <div className="counter">
-      <label htmlFor="input" className="input-label" title="set me">set me</label><br/>
+      <label htmlFor="input" className="input-label" title="set me">set me</label>
       <input type="button" className="decrease" value=" - " onClick={() => onValueChange(value - 1)}/>
       <input type="number" className="input" id="input" value={value} min={min} max={max} onChange={() => onValueChange(document.querySelector(`.input`).value)} onWheel={(evt) => wheelHandler(evt, document.querySelector(`.input`).value)}/>
       <input type="button" className="increase" value=" + " onClick={() => onValueChange(value + 1)}/>
