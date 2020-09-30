@@ -1,13 +1,19 @@
 import React from 'react';
 
-const Counter = (props) => {
-  const {value, min, max, onValueChange} = props;
-  function wheelHandler(evt, val) {
+class Counter extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this._wheelHandler = this._wheelHandler.bind(this);
+  }
+
+  _wheelHandler(evt, val) {
     evt.deltaY < 0 ? val++ : val--
-    return onValueChange(val)
+    return this.props.onValueChange(val)
   }
   
-  return <React.Fragment>
+  render() {
+    const {min, max, value, onValueChange} = this.props;
+    return <React.Fragment>
     <div className="description">
       <p>Текущее минимальное значение: {min}</p>
       <p>Текущее максимальное значение: {max}</p>
@@ -15,10 +21,11 @@ const Counter = (props) => {
     <div className="counter">
       <label htmlFor="input" className="input-label" title="set me">set me</label>
       <input type="button" className="decrease" value=" - " onClick={() => onValueChange(value - 1)}/>
-      <input type="number" className="input" id="input" value={value} min={min} max={max} onChange={() => onValueChange(document.querySelector(`.input`).value)} onWheel={(evt) => wheelHandler(evt, document.querySelector(`.input`).value)}/>
+      <input type="number" className="input" id="input" value={value} min={min} max={max} onChange={() => onValueChange(document.querySelector(`.input`).value)} onWheel={(evt) => this._wheelHandler(evt, document.querySelector(`.input`).value)}/>
       <input type="button" className="increase" value=" + " onClick={() => onValueChange(value + 1)}/>
     </div>
   </React.Fragment>
+  }
 }
 
 export default Counter;
